@@ -1,14 +1,12 @@
 'use strict';
 
 console.log('hello');
-const myContainer = document.getElementById('container');
+// const myContainer = document.getElementById('container');
 const seattleList = document.getElementById('seattle-list');
 const tokyoList = document.getElementById('tokyo-list');
 const dubaiList = document.getElementById('dubai-list');
 const parisList = document.getElementById('paris-list');
 const limaList = document.getElementById('lima-list');
-// let hoursArray = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
-// let totalSoldEachDay = 0;
 
 let seattleStore = {
   name: 'Seattle',
@@ -31,23 +29,15 @@ let seattleStore = {
       // this.dailyTotal += totalSales;
       seattleList.appendChild(li);
     }
+    // This will be used in the future
     // let totalSales = document.createElement('li');
     // totalSales.textContent = `Todays sales total was: ${this.dailyTotal}`;
     // seattleList.appendChild(totalSales);
     return this.cookiesSoldPerHourArray;
   },
 };
-// console.log(seattleStore);
-seattleStore.calcCookiesSoldPerHour();
 
-  // render: function(){
-  //   for (let i = 0; i < this.cookiesSoldPerHourArray; i++){
-  //     let li = document.createElement('li');
-  //     li.textContent = `(${this.cookiesSoldPerHourArray}) Cookies were sold`;
-  //     seattleList.appendChild(li);
-  //   }
-  //   return;
-  // }
+seattleStore.calcCookiesSoldPerHour();
 
 let tokyoStore = {
   name: 'Tokyo',
