@@ -12,28 +12,31 @@ let seattleStore = {
   dailyTotalOfCustomers: 0,
   cookiesSoldPerHourArray: [],
   genRandomCustomers: function () {
-    return Math.floor(Math.random() * (this.max - this.min + 1) + this.min);
+    return Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1) + this.minCustomers);
   },
   calcCookiesSoldPerHour: function() {
     //calc cookies for all 14 hours
     // for loop for hours length array
     // in loop multiply avg
-    console.log('hoursArray=================================================', hoursArray);
+    console.log(`min: ${this.minCustomers} max: ${this.maxCustomers}`);
+    // console.log('hoursArray=================================================', hoursArray);
     for (let i = 0; i < hoursArray.length; i++){
       let custOnHour = this.genRandomCustomers();
-      // console.log(custOnHour);
       let cookiesSoldThisHour = Math.ceil(custOnHour * this.avgCookieSales);
       this.cookiesSoldPerHourArray.push(`${hoursArray[i]}: ${cookiesSoldThisHour}`);
+      console.log(`This is customer per hour: ${custOnHour}`);
+      console.log(`This is cookies per hour: ${cookiesSoldThisHour}`);
     }
     return this.cookiesSoldPerHourArray;
   },
-  render: function(){
-    this.calcCookiesPerHour();
-  }
+
+  // render: function(){
+  //   this.calcCookiesPerHour();
+  // }
 };
 console.log(seattleStore);
 seattleStore.calcCookiesSoldPerHour();
-seattleStore.render();
+// seattleStore.render();
 
 // let tokyoStore = {
 //   name: 'Tokyo',
