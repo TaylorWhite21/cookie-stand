@@ -24,7 +24,6 @@ tfoot {
 }
 
 h1 {
-
   font-family: 'Press Start 2P', cursive;
   font-size: 30px;
   text-align: center;
@@ -34,8 +33,10 @@ h1 {
 }
 
 body {
-  background-color: bisque;
+  background-image: url(../img/river.jpg);
   font-family: 'Cinzel', serif;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 
@@ -56,7 +57,6 @@ body {
 
 .happycow {
   margin-left: 45%;
-  padding-top: 2%;
   padding-bottom: 2%;
   height: 5%;
   width: 5%;
@@ -64,14 +64,39 @@ body {
 
 
 .navbar {
-  background-color: yellow; 
+  background-color: salmon; 
   list-style-type: none;
   text-align: center;
-  margin: 0;
+  margin-left: 30%;
+  margin-right: 30%;
   padding: 0;
 }
 
 .navbar li {
+  display: inline-block;
+  font-size: 20px;
+  padding: 20px;
+}
+
+.locations {
+  background-color: salmon; 
+  list-style-type: none;
+  text-align: center;
+  margin-left: 45%;
+  margin-right: 45%;
+  margin-top: 10px;
+}
+
+.locationsbar {
+  background-color: salmon; 
+  list-style-type: none;
+  text-align: center;
+  margin-left: 30%;
+  margin-right: 30%;
+  padding: 0;
+}
+
+.locationsbar li {
   display: inline-block;
   font-size: 20px;
   padding: 20px;
@@ -86,6 +111,16 @@ p {
   padding: 20px;
   width: 50%;
   height: 20%px;
+  background-color: salmon;
+}
+
+header {
+  padding-top: 10px;
+  margin-top: 1%;
+}
+
+h1 {
+  color: salmon;
 }
 
 /* DONE A specified standard serif web font for text (such as Georgia, Times, etc.) */ 
