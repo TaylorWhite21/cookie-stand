@@ -16,6 +16,7 @@ function Stores (name, minCustomers, maxCustomers, avgCookieSales) {
   this.cookiesSoldPerHourArray = [];
   this.dailyTotal = 0;
   this.hourlyTotal = 0;
+  this.render();
   allStores.push(this);
 }
 
@@ -72,7 +73,7 @@ let renderFooter = function (){
   let tableData = document.createElement('tr');
   tableRow.appendChild(tableData);
 
-  tableData = document.createElement('tfoot');
+  tableData = document.createElement('th');
   tableData.textContent = 'Hourly Totals';
   tableRow.appendChild(tableData);
 
@@ -87,18 +88,21 @@ let renderFooter = function (){
   tableRow.appendChild(tableData);
 };
 
-let seattle = new Stores('Seattle', 23, 65, 6.3);
-let tokyo = new Stores('Tokyo', 3, 24, 1.2);
-let dubai = new Stores('Dubai', 11, 38, 2.3);
-let paris = new Stores('Paris', 11, 38, 2.3);
-let lima = new Stores('Lima', 11, 38, 2.3);
-
-
-
 renderHeader();
 renderFooter();
-seattle.render();
-tokyo.render();
-dubai.render();
-paris.render();
-lima.render();
+new Stores('Seattle', 23, 65, 6.3);
+new Stores('Tokyo', 3, 24, 1.2);
+new Stores('Dubai', 11, 38, 2.3);
+new Stores('Paris', 11, 38, 2.3);
+new Stores('Lima', 11, 38, 2.3);
+
+
+
+// Decided not to use
+// renderHeader();
+// renderFooter();
+// seattle.render();
+// tokyo.render();
+// dubai.render();
+// paris.render();
+// lima.render();

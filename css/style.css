@@ -38,6 +38,56 @@ body {
   font-family: 'Cinzel', serif;
 }
 
+
+.salmon {
+  padding-top: 2%;
+  margin-left: 38%;
+  padding-bottom: 2%;
+  height: 25%;
+  width: 25%;
+}
+
+.cert {
+  padding-top: 2%;
+  padding-bottom: 2%;
+  height: 5%;
+  width: 5%;
+}
+
+.happycow {
+  margin-left: 45%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  height: 5%;
+  width: 5%;
+}
+
+
+.navbar {
+  background-color: yellow; 
+  list-style-type: none;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  display: inline-block;
+  font-size: 20px;
+  padding: 20px;
+}
+
+p {
+  text-align: center;
+  margin-left: 25%;
+  margin-right: 70%;
+  border-radius: 25px;
+  border: 2px solid salmon;
+  padding: 20px;
+  width: 50%;
+  height: 20%px;
+}
+
 /* DONE A specified standard serif web font for text (such as Georgia, Times, etc.) */ 
 /* Specified different font colors for all three font usages */
 /* A different background color for elements such boxes and tables (so make sure the font colors contrast against this well, too!) */
