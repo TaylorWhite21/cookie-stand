@@ -5,9 +5,6 @@ const storesTable = document.querySelector('table');
 const hoursArray = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 let allStores = [];
 
-
-// DONE replace object literals with a single constructor
-// DONE populate table information with render
 function Stores (name, minCustomers, maxCustomers, avgCookieSales) {
   this.name = name;
   this.minCustomers = minCustomers;
