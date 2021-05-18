@@ -1,9 +1,13 @@
-# cookie-stand
-# LAB - 06
+# Cookie Stand Project
 
-## Get started on the Salmon Cookies project
+# LAB - 06, 07, 08
 
-I build an app with a direct and powerful purpose. It does all of the things that it accomplishes well. I should describe the purpose and functionality so those that visit my README understand the app
+## Cookie Stand
+This is a website for pats vegan salmon cookies that displays store locations and sales information.
+
+## app.js
+This renders the table for the sales chart and calculates all the sales information for every store.
+Utilized methods and constructors.
 
 ### Author: Taylor White
 

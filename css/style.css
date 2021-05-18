@@ -1,0 +1,120 @@
+table {
+  border: 1px solid black;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+th {
+  border: 1px solid red;
+  background-color: black;
+  color: red;
+}
+
+td {
+  border: 1px solid black;
+  background-color: blue;
+  font-family: 'Roboto', sans-serif;
+}
+
+tfoot {
+  border: 1px solid green;
+  background-color: green;
+}
+
+h1 {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 30px;
+  text-align: center;
+  color: black;
+  padding: 15px 32px;
+  text-decoration: none;
+}
+
+body {
+  background-image: url(../img/river.jpg);
+  font-family: 'Cinzel', serif;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.salmon {
+  padding-top: 2%;
+  margin-left: 38%;
+  padding-bottom: 2%;
+  height: 25%;
+  width: 25%;
+}
+
+.cert {
+  padding-top: 2%;
+  padding-bottom: 2%;
+  height: 5%;
+  width: 5%;
+}
+
+.happycow {
+  margin-left: 45%;
+  padding-bottom: 2%;
+  height: 5%;
+  width: 5%;
+}
+
+.navbar {
+  background-color: salmon; 
+  list-style-type: none;
+  text-align: center;
+  margin-left: 30%;
+  margin-right: 30%;
+  padding: 0;
+}
+
+.navbar li {
+  display: inline-block;
+  font-size: 20px;
+  padding: 20px;
+}
+
+.locations {
+  background-color: salmon; 
+  list-style-type: none;
+  text-align: center;
+  margin-left: 45%;
+  margin-right: 45%;
+  margin-top: 10px;
+}
+
+.locationsbar {
+  background-color: salmon; 
+  list-style-type: none;
+  text-align: center;
+  margin-left: 30%;
+  margin-right: 30%;
+  padding: 0;
+}
+
+.locationsbar li {
+  display: inline-block;
+  font-size: 20px;
+  padding: 20px;
+}
+
+p {
+  text-align: center;
+  margin-left: 25%;
+  margin-right: 70%;
+  border-radius: 25px;
+  border: 2px solid salmon;
+  padding: 20px;
+  width: 50%;
+  height: 20%px;
+  background-color: salmon;
+}
+
+header {
+  padding-top: 10px;
+  margin-top: 1%;
+}
+
+h1 {
+  color: salmon;
+}
