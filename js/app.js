@@ -1,10 +1,13 @@
 'use strict';
 
 // const myContainer = document.getElementById('container');
+// Global Variables
 const storesTable = document.querySelector('table');
 const hoursArray = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 let allStores = [];
+let allStoresTotalArray = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
+// Constructor function to create stores
 function Stores (name, minCustomers, maxCustomers, avgCookieSales) {
   this.name = name;
   this.minCustomers = minCustomers;
@@ -17,9 +20,12 @@ function Stores (name, minCustomers, maxCustomers, avgCookieSales) {
   allStores.push(this);
 }
 
+// Method that generates random number of customers
 Stores.prototype.genRandomCustomers = function () {
   return Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1) + this.minCustomers);
 };
+
+// Method that calculates cookies sold per hour and pushes into array
 Stores.prototype.calcCookiesSoldPerHour = function () {
   for (let i = 0; i < hoursArray.length; i++){
     let custOnHour = this.genRandomCustomers();
@@ -28,6 +34,8 @@ Stores.prototype.calcCookiesSoldPerHour = function () {
     this.dailyTotal += cookiesSoldThisHour;
   }
 };
+
+// Creates table on sales page
 Stores.prototype.render = function () {
   this.calcCookiesSoldPerHour();
   let tableRow = document.createElement('tr');
@@ -46,6 +54,7 @@ Stores.prototype.render = function () {
   tableRow.appendChild(tableData);
 };
 
+// Renders table header
 let renderHeader = function (){
   let tableRow = document.createElement('tr');
   storesTable.appendChild(tableRow);
@@ -64,6 +73,7 @@ let renderHeader = function (){
 
 };
 
+// Renders table footer
 let renderFooter = function (){
   let tableRow = document.createElement('tfoot');
   storesTable.appendChild(tableRow);
@@ -76,7 +86,7 @@ let renderFooter = function (){
 
   for (let j = 0; j < hoursArray.length; j++){
     let tableData = document.createElement('td');
-    tableData.textContent = 'Stuff';
+    tableData.textContent = allStoresTotalArray[j];
     tableRow.appendChild(tableData);
   }
 
@@ -84,6 +94,7 @@ let renderFooter = function (){
   tableData.textContent = 'All stores total';
   tableRow.appendChild(tableData);
 };
+
 
 renderHeader();
 renderFooter();
