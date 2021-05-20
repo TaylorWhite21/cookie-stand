@@ -5,7 +5,9 @@
 const storesTable = document.querySelector('table');
 const hoursArray = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 let allStores = [];
-let allStoresTotalArray = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
+let allStoresTotalArray = [
+  []
+];
 
 // Constructor function to create stores
 function Stores (name, minCustomers, maxCustomers, avgCookieSales) {
@@ -75,34 +77,39 @@ let renderHeader = function (){
 
 // Renders table footer
 let renderFooter = function (){
-  let tableRow = document.createElement('tfoot');
-  storesTable.appendChild(tableRow);
-  let tableData = document.createElement('tr');
-  tableRow.appendChild(tableData);
+  let grandTotal = 0;
+  let tfoot = document.createElement('tfoot');
+  storesTable.appendChild(tfoot);
+  let tableRow = document.createElement('tr');
+  tfoot.appendChild(tableRow);
 
-  tableData = document.createElement('th');
-  tableData.textContent = 'Hourly Totals';
-  tableRow.appendChild(tableData);
+  let tableHeaderCell = document.createElement('th');
+  tableHeaderCell.textContent = 'Hourly Totals';
+  tableRow.appendChild(tableHeaderCell);
 
-  for (let j = 0; j < hoursArray.length; j++){
+  for (let i = 0; i < hoursArray.length; i++){ // slow
     let tableData = document.createElement('td');
-    tableData.textContent = allStoresTotalArray[j];
+    let hourTotal = 0;
+    for (let j = 0; j < allStores.length; j++){ // fast
+      hourTotal += allStores[j].cookiesSoldPerHourArray[i];
+    }
+    grandTotal += hourTotal;
+    tableData.textContent = hourTotal;
     tableRow.appendChild(tableData);
   }
 
-  tableData = document.createElement('tfoot');
-  tableData.textContent = 'All stores total';
+  let tableData = document.createElement('td');
+  tableData.textContent = grandTotal;
   tableRow.appendChild(tableData);
 };
 
-
 renderHeader();
-renderFooter();
 new Stores('Seattle', 23, 65, 6.3);
 new Stores('Tokyo', 3, 24, 1.2);
 new Stores('Dubai', 11, 38, 2.3);
 new Stores('Paris', 11, 38, 2.3);
 new Stores('Lima', 11, 38, 2.3);
+renderFooter();
 
 
 
