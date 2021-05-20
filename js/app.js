@@ -5,9 +5,6 @@
 const storesTable = document.querySelector('table');
 const hoursArray = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 let allStores = [];
-let allStoresTotalArray = [
-  []
-];
 
 // Constructor function to create stores
 function Stores (name, minCustomers, maxCustomers, avgCookieSales) {
@@ -87,6 +84,7 @@ let renderFooter = function (){
   tableHeaderCell.textContent = 'Hourly Totals';
   tableRow.appendChild(tableHeaderCell);
 
+  // 2D array to calculate totals of each store per hour
   for (let i = 0; i < hoursArray.length; i++){ // slow
     let tableData = document.createElement('td');
     let hourTotal = 0;
@@ -103,6 +101,7 @@ let renderFooter = function (){
   tableRow.appendChild(tableData);
 };
 
+
 renderHeader();
 new Stores('Seattle', 23, 65, 6.3);
 new Stores('Tokyo', 3, 24, 1.2);
@@ -110,14 +109,3 @@ new Stores('Dubai', 11, 38, 2.3);
 new Stores('Paris', 11, 38, 2.3);
 new Stores('Lima', 11, 38, 2.3);
 renderFooter();
-
-
-
-// Decided not to use
-// renderHeader();
-// renderFooter();
-// seattle.render();
-// tokyo.render();
-// dubai.render();
-// paris.render();
-// lima.render();
