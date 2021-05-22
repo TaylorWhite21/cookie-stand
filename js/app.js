@@ -1,8 +1,8 @@
 'use strict';
 
-// const myContainer = document.getElementById('container');
 // Global Variables
 const storesTable = document.querySelector('table');
+const myForm = document.getElementById('myForm');
 const hoursArray = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 let allStores = [];
 
@@ -101,7 +101,100 @@ let renderFooter = function (){
   tableRow.appendChild(tableData);
 };
 
+// Renders input forms and submit button(can be broken down into smaller functions)
+let renderForm = function () {
+  //creates beginnings of form inputs
+  let fieldSet = document.createElement('fieldset');
+  myForm.appendChild(fieldSet);
+  console.log(fieldSet);
 
+  let legend = document.createElement('legend');
+  fieldSet.appendChild(legend);
+
+  //creates first label to display store name
+  let storelabel = document.createElement('label');
+  storelabel.innerHTML = 'Store Name';
+  legend.appendChild(storelabel);
+
+  // creates input form for store name
+  let formStoreName = document.createElement('input');
+  formStoreName.setAttribute('type', 'text');
+  formStoreName.setAttribute('name', 'store');
+  formStoreName.setAttribute('required', 'true');
+  storelabel.appendChild(formStoreName);
+
+  // creates label for min customers
+  let minLabel = document.createElement('label');
+  minLabel.innerHTML = 'Minimum Customers';
+  legend.appendChild(minLabel);
+
+  // creates form and allows only numbers and decimals
+  let formMinCust = document.createElement('input');
+  formMinCust.setAttribute('type', 'number');
+  formMinCust.setAttribute('min', 0);
+  formMinCust.setAttribute('max', 'any');
+  formMinCust.setAttribute('step', .1);
+  formMinCust.setAttribute('name', 'min');
+  minLabel.appendChild(formMinCust);
+
+  // creates label for max customers
+  let maxLabel = document.createElement('label');
+  maxLabel.innerHTML = 'Maximum Customers';
+  legend.appendChild(maxLabel);
+
+  // creates form and allows only numbers and decimals
+  let formMaxCust = document.createElement('input');
+  formMaxCust.setAttribute('type', 'number');
+  formMinCust.setAttribute('min', 0);
+  formMinCust.setAttribute('max', 'any');
+  formMinCust.setAttribute('step', .1);
+  formMaxCust.setAttribute('name', 'max');
+  maxLabel.appendChild(formMaxCust);
+
+  // creates label for Average Cookies Sold
+  let avgLabel = document.createElement('label');
+  avgLabel.innerHTML = 'Average Cookies Sold';
+  legend.appendChild(avgLabel);
+
+  // creates form and allows only numbers and decimals
+  let formAvgSold = document.createElement('input');
+  formAvgSold.setAttribute('type', 'number');
+  formMinCust.setAttribute('min', 0);
+  formMinCust.setAttribute('max', 'any');
+  formMinCust.setAttribute('step', .1);
+  formAvgSold.setAttribute('name', 'avg');
+  avgLabel.appendChild(formAvgSold);
+
+  //creates submit button
+  let submitForm = document.createElement('button');
+  submitForm.setAttribute('type', 'submit');
+  submitForm.setAttribute('value', 'Submit');
+  submitForm.setAttribute('class', 'buttonHover');
+  submitForm.innerHTML = 'Submit';
+  avgLabel.appendChild(submitForm);
+};
+
+//removes footer after submit pressed
+let removeFooter = function () {
+  document.getElementById('salesTable').deleteTFoot();
+};
+
+// Handles submission of inputs and replaces the footer with new information
+function submitHandler (event) {
+  event.preventDefault();
+  let storeName = event.target.store.value;
+  let minCust = parseInt(event.target.min.value);
+  let maxCust = parseInt(event.target.max.value);
+  let avgSold = parseInt(event.target.avg.value);
+  new Stores(storeName, minCust, maxCust, avgSold);
+  removeFooter();
+  renderFooter();
+}
+
+myForm.addEventListener('submit', submitHandler);
+
+//Renders page
+renderForm();
 renderHeader();
 new Stores('Seattle', 23, 65, 6.3);
 new Stores('Tokyo', 3, 24, 1.2);

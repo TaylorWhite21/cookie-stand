@@ -12,7 +12,7 @@ Utilized methods and constructors.
 ### Author: Taylor White
 
 ### Links and Resources
-* [submission PR](http://xyz.com)
+* [geeksforgeeks](https://www.geeksforgeeks.org/how-to-create-a-form-dynamically-with-the-javascript)
 * Any Links you used as reference
 
 ### Reflections and Comments

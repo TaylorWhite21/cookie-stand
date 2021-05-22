@@ -154,7 +154,7 @@ div.description {
   text-align: center;
 }
 
-.addtocart {
+.buttonHover {
   background-color: #111;
   color: #eee;
   margin-top: 5px;
@@ -166,12 +166,21 @@ div.description {
   text-decoration: none;
 }
 
-.addtocart:hover {
+.buttonHover:hover {
   background-color: red;
   transition: 350ms;
   color: yellow;
   transform: rotate(360deg);
 }
 /* End Merch Page */
+
+form {
+  background-color: salmon;
+  margin-left: 200px;
+  margin-right: 100px;
+  margin-top: 10px;
+  color: blue;
+  border: 5px blue inset;
+}
 
 
