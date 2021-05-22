@@ -1,6 +1,8 @@
 'use strict';
 
-// const myContainer = document.getElementById('container');
+const myForm = document.getElementById('myForm');
+console.log(myForm);
+
 // Global Variables
 const storesTable = document.querySelector('table');
 const hoursArray = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
@@ -101,7 +103,99 @@ let renderFooter = function (){
   tableRow.appendChild(tableData);
 };
 
+function submitHandler (event) {
+  event.preventDefault();
+  console.log('Im aliiiiiive!!!!!!');
+  let storeName = event.target.store.value;
+  let minCust = parseInt(event.target.min.value);
+  let maxCust = parseInt(event.target.max.value);
+  let avgSold = parseInt(event.target.avg.value);
+  console.log(storeName);
+  console.log(minCust);
+  console.log(maxCust);
+  console.log(avgSold);
+  new Stores('storeName', minCust, maxCust, avgSold);
+  removeFooter();
+  renderFooter();
+}
 
+//removes footer after submit pressed
+let removeFooter = function () {
+  document.getElementById('salesTable').deleteTFoot();
+};
+
+let renderForm = function () {
+  let fieldSet = document.createElement('fieldset');
+  myForm.appendChild(fieldSet);
+  console.log(fieldSet);
+
+  let legend = document.createElement('legend');
+  fieldSet.appendChild(legend);
+
+  let storelabel = document.createElement('label');
+  storelabel.innerHTML = 'Store Name';
+  legend.appendChild(storelabel);
+
+  let formStoreName = document.createElement('input');
+  formStoreName.setAttribute('type', 'text');
+  formStoreName.setAttribute('name', 'store');
+  formStoreName.setAttribute('required', 'true');
+  storelabel.appendChild(formStoreName);
+
+  let minLabel = document.createElement('label');
+  minLabel.innerHTML = 'Minimum Customers';
+  legend.appendChild(minLabel);
+
+  let formMinCust = document.createElement('input');
+  formMinCust.setAttribute('type', 'number');
+  formMinCust.setAttribute('min', 0);
+  formMinCust.setAttribute('max', 'any');
+  formMinCust.setAttribute('step', .1);
+  formMinCust.setAttribute('name', 'store');
+  minLabel.appendChild(formMinCust);
+
+  let maxLabel = document.createElement('label');
+  maxLabel.innerHTML = 'Maximum Customers';
+  legend.appendChild(maxLabel);
+
+  let formMaxCust = document.createElement('input');
+  formMaxCust.setAttribute('type', 'number');
+  formMinCust.setAttribute('min', 0);
+  formMinCust.setAttribute('max', 'any');
+  formMinCust.setAttribute('step', .1);
+  formMaxCust.setAttribute('name', 'store');
+  maxLabel.appendChild(formMaxCust);
+
+  let avgLabel = document.createElement('label');
+  avgLabel.innerHTML = 'average Customers';
+  legend.appendChild(avgLabel);
+
+  let formAvgSold = document.createElement('input');
+  formAvgSold.setAttribute('type', 'number');
+  formMinCust.setAttribute('min', 0);
+  formMinCust.setAttribute('max', 'any');
+  formMinCust.setAttribute('step', .1);
+  formAvgSold.setAttribute('name', 'store');
+  avgLabel.appendChild(formAvgSold);
+
+  let submitForm = document.createElement('button');
+  submitForm.setAttribute('type', 'submit');
+  submitForm.setAttribute('value', 'Submit');
+  submitForm.setAttribute('class', 'buttonHover');
+  submitForm.innerHTML = 'Submit';
+  avgLabel.appendChild(submitForm);
+
+};
+
+//DONE Create event handler DONE
+//DONE consists of container=doc getelementbyid DONE
+//DONE add event listener (pass in two arguments)DONE
+//DONE Define the event handler function DONE
+//MAKE SURE TO CONSOLE LOG FOR PRROF OF LIFE BEFORE GOING TOO DEEP!!
+
+myForm.addEventListener('submit', submitHandler);
+
+renderForm();
 renderHeader();
 new Stores('Seattle', 23, 65, 6.3);
 new Stores('Tokyo', 3, 24, 1.2);
