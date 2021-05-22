@@ -1,10 +1,8 @@
 'use strict';
 
-const myForm = document.getElementById('myForm');
-console.log(myForm);
-
 // Global Variables
 const storesTable = document.querySelector('table');
+const myForm = document.getElementById('myForm');
 const hoursArray = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 let allStores = [];
 
@@ -195,6 +193,7 @@ function submitHandler (event) {
 
 myForm.addEventListener('submit', submitHandler);
 
+//Renders page
 renderForm();
 renderHeader();
 new Stores('Seattle', 23, 65, 6.3);

@@ -175,8 +175,12 @@ div.description {
 /* End Merch Page */
 
 form {
-  background-color: black;
+  background-color: salmon;
+  margin-left: 200px;
+  margin-right: 100px;
+  margin-top: 10px;
   color: blue;
+  border: 5px blue inset;
 }
 
 
