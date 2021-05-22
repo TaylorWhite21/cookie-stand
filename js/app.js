@@ -103,28 +103,9 @@ let renderFooter = function (){
   tableRow.appendChild(tableData);
 };
 
-function submitHandler (event) {
-  event.preventDefault();
-  console.log('Im aliiiiiive!!!!!!');
-  let storeName = event.target.store.value;
-  let minCust = parseInt(event.target.min.value);
-  let maxCust = parseInt(event.target.max.value);
-  let avgSold = parseInt(event.target.avg.value);
-  console.log(storeName);
-  console.log(minCust);
-  console.log(maxCust);
-  console.log(avgSold);
-  new Stores('storeName', minCust, maxCust, avgSold);
-  removeFooter();
-  renderFooter();
-}
-
-//removes footer after submit pressed
-let removeFooter = function () {
-  document.getElementById('salesTable').deleteTFoot();
-};
-
+// Renders input forms and submit button(can be broken down into smaller functions)
 let renderForm = function () {
+  //creates beginnings of form inputs
   let fieldSet = document.createElement('fieldset');
   myForm.appendChild(fieldSet);
   console.log(fieldSet);
@@ -132,66 +113,85 @@ let renderForm = function () {
   let legend = document.createElement('legend');
   fieldSet.appendChild(legend);
 
+  //creates first label to display store name
   let storelabel = document.createElement('label');
   storelabel.innerHTML = 'Store Name';
   legend.appendChild(storelabel);
 
+  // creates input form for store name
   let formStoreName = document.createElement('input');
   formStoreName.setAttribute('type', 'text');
   formStoreName.setAttribute('name', 'store');
   formStoreName.setAttribute('required', 'true');
   storelabel.appendChild(formStoreName);
 
+  // creates label for min customers
   let minLabel = document.createElement('label');
   minLabel.innerHTML = 'Minimum Customers';
   legend.appendChild(minLabel);
 
+  // creates form and allows only numbers and decimals
   let formMinCust = document.createElement('input');
   formMinCust.setAttribute('type', 'number');
   formMinCust.setAttribute('min', 0);
   formMinCust.setAttribute('max', 'any');
   formMinCust.setAttribute('step', .1);
-  formMinCust.setAttribute('name', 'store');
+  formMinCust.setAttribute('name', 'min');
   minLabel.appendChild(formMinCust);
 
+  // creates label for max customers
   let maxLabel = document.createElement('label');
   maxLabel.innerHTML = 'Maximum Customers';
   legend.appendChild(maxLabel);
 
+  // creates form and allows only numbers and decimals
   let formMaxCust = document.createElement('input');
   formMaxCust.setAttribute('type', 'number');
   formMinCust.setAttribute('min', 0);
   formMinCust.setAttribute('max', 'any');
   formMinCust.setAttribute('step', .1);
-  formMaxCust.setAttribute('name', 'store');
+  formMaxCust.setAttribute('name', 'max');
   maxLabel.appendChild(formMaxCust);
 
+  // creates label for Average Cookies Sold
   let avgLabel = document.createElement('label');
-  avgLabel.innerHTML = 'average Customers';
+  avgLabel.innerHTML = 'Average Cookies Sold';
   legend.appendChild(avgLabel);
 
+  // creates form and allows only numbers and decimals
   let formAvgSold = document.createElement('input');
   formAvgSold.setAttribute('type', 'number');
   formMinCust.setAttribute('min', 0);
   formMinCust.setAttribute('max', 'any');
   formMinCust.setAttribute('step', .1);
-  formAvgSold.setAttribute('name', 'store');
+  formAvgSold.setAttribute('name', 'avg');
   avgLabel.appendChild(formAvgSold);
 
+  //creates submit button
   let submitForm = document.createElement('button');
   submitForm.setAttribute('type', 'submit');
   submitForm.setAttribute('value', 'Submit');
   submitForm.setAttribute('class', 'buttonHover');
   submitForm.innerHTML = 'Submit';
   avgLabel.appendChild(submitForm);
-
 };
 
-//DONE Create event handler DONE
-//DONE consists of container=doc getelementbyid DONE
-//DONE add event listener (pass in two arguments)DONE
-//DONE Define the event handler function DONE
-//MAKE SURE TO CONSOLE LOG FOR PRROF OF LIFE BEFORE GOING TOO DEEP!!
+//removes footer after submit pressed
+let removeFooter = function () {
+  document.getElementById('salesTable').deleteTFoot();
+};
+
+// Handles submission of inputs and replaces the footer with new information
+function submitHandler (event) {
+  event.preventDefault();
+  let storeName = event.target.store.value;
+  let minCust = parseInt(event.target.min.value);
+  let maxCust = parseInt(event.target.max.value);
+  let avgSold = parseInt(event.target.avg.value);
+  new Stores(storeName, minCust, maxCust, avgSold);
+  removeFooter();
+  renderFooter();
+}
 
 myForm.addEventListener('submit', submitHandler);
 
