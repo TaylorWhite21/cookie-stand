@@ -109,6 +109,7 @@ let renderForm = function () {
   console.log(fieldSet);
 
   let legend = document.createElement('legend');
+  legend.textContent = 'Please enter new store and sales information ';
   fieldSet.appendChild(legend);
 
   //creates first label to display store name
@@ -135,6 +136,7 @@ let renderForm = function () {
   formMinCust.setAttribute('max', 'any');
   formMinCust.setAttribute('step', .1);
   formMinCust.setAttribute('name', 'min');
+  formMinCust.setAttribute('required', 'true');
   minLabel.appendChild(formMinCust);
 
   // creates label for max customers
@@ -149,6 +151,7 @@ let renderForm = function () {
   formMinCust.setAttribute('max', 'any');
   formMinCust.setAttribute('step', .1);
   formMaxCust.setAttribute('name', 'max');
+  formMaxCust.setAttribute('required', 'true');
   maxLabel.appendChild(formMaxCust);
 
   // creates label for Average Cookies Sold
@@ -163,6 +166,7 @@ let renderForm = function () {
   formMinCust.setAttribute('max', 'any');
   formMinCust.setAttribute('step', .1);
   formAvgSold.setAttribute('name', 'avg');
+  formAvgSold.setAttribute('required', 'true');
   avgLabel.appendChild(formAvgSold);
 
   //creates submit button
